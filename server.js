@@ -16,10 +16,9 @@ const app = express();
 // body parser
 app.use(express.json());
 
-
 //Routes
 const bootcamps = require('./routes/bootcamps');
-
+const courses = require('./routes/courses');
 
 // dev logging middleware
 if (process.env.NODE_ENV === 'development') {
@@ -28,6 +27,7 @@ if (process.env.NODE_ENV === 'development') {
 
 //Mouting routers
 app.use('/api/v1/bootcamps', bootcamps);
+app.use('/api/v1/courses', courses);
 
 // bringing in error middleware
 app.use(errorHandler);
